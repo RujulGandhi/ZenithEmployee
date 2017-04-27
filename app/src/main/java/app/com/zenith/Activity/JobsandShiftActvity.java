@@ -62,10 +62,8 @@ public class JobsandShiftActvity extends AppCompatActivity {
     private Toolbar toolbar;
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobsand_shift_actvity);
         utils = new Utils(context);
@@ -124,9 +122,7 @@ public class JobsandShiftActvity extends AppCompatActivity {
                             // COlorCode Formate:- UIExtendedSRGBColorSpace 0 0.588235 0.533333 1
                             colorPicker.setColors(colors).setDefaultColorButton(Color.parseColor("#f84c44")).setColumns(5).setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
                                 @Override
-                                public void onChooseColor(int position, int color)
-                                {
-                                    Log.d("Color", "" + color + " -- " + position + " : " + colors.get(position));
+                                public void onChooseColor(int position, int color) {
                                     int colorData = (int) Long.parseLong(colors.get(position).substring(1, colors.get(position).length()), 16);
                                     int r = (colorData >> 16) & 0xFF;
                                     int g = (colorData >> 8) & 0xFF;
@@ -196,8 +192,7 @@ public class JobsandShiftActvity extends AppCompatActivity {
                 hour = hourOfDay;
                 minut = minute;
                 String s = "";
-                if (hour > 12)
-                    {
+                if (hour > 12) {
                     hour -= 12;
                     s = "PM";
                 } else if (hour == 0) {

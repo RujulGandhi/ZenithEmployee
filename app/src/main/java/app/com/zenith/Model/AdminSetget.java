@@ -1,5 +1,7 @@
 package app.com.zenith.Model;
 
+import java.util.ArrayList;
+
 /**
  * Created by archi_info on 3/7/2017.
  */
@@ -10,38 +12,14 @@ public class AdminSetget {
     private String e_shift;
     private String e_date;
     private String e_img;
+    private ArrayList<EventDetails> eventArray;
 
-    // TODO Nested Looping...
-    public String getEvent_id() {
-        return event_id;
+    public ArrayList<EventDetails> getEventArray() {
+        return eventArray;
     }
 
-    public void setEvent_id(String event_id) {
-        this.event_id = event_id;
-    }
-
-    public String getEvent_colorcode() {
-        return event_colorcode;
-    }
-
-    public void setEvent_colorcode(String event_colorcode) {
-        this.event_colorcode = event_colorcode;
-    }
-
-    private String event_id;
-    private String event_colorcode;
-    private String event_name;
-    private String event_start_time;
-    private String event_end_time;
-    private String event_hourly_rate;
-
-
-    public String getE_id() {
-        return e_id;
-    }
-
-    public void setE_id(String e_id) {
-        this.e_id = e_id;
+    public void setEventArray(ArrayList<EventDetails> eventArray) {
+        this.eventArray = eventArray;
     }
 
     public String getE_img() {
@@ -50,6 +28,14 @@ public class AdminSetget {
 
     public void setE_img(String e_img) {
         this.e_img = e_img;
+    }
+
+    public String getE_id() {
+        return e_id;
+    }
+
+    public void setE_id(String e_id) {
+        this.e_id = e_id;
     }
 
     public String getE_name() {
@@ -76,35 +62,15 @@ public class AdminSetget {
         this.e_date = e_date;
     }
 
-    public String getEvent_name() {
-        return event_name;
-    }
-
-    public void setEvent_name(String event_name) {
-        this.event_name = event_name;
-    }
-
-    public String getEvent_end_time() {
-        return event_end_time;
-    }
-
-    public void setEvent_end_time(String event_end_time) {
-        this.event_end_time = event_end_time;
-    }
-
-    public String getEvent_hourly_rate() {
-        return event_hourly_rate;
-    }
-
-    public void setEvent_hourly_rate(String event_hourly_rate) {
-        this.event_hourly_rate = event_hourly_rate;
-    }
-
-    public String getEvent_start_time() {
-        return event_start_time;
-    }
-
-    public void setEvent_start_time(String event_start_time) {
-        this.event_start_time = event_start_time;
+    @Override
+    public String toString() {
+        return "AdminSetget{" +
+                "e_id='" + e_id + '\'' +
+                ", e_name='" + e_name + '\'' +
+                ", e_shift='" + e_shift + '\'' +
+                ", e_date='" + e_date + '\'' +
+                ", e_img='" + e_img + '\'' +
+                ", eventArray=" + eventArray +
+                '}';
     }
 }

@@ -1,13 +1,9 @@
 package app.com.zenith.Activity;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,44 +12,23 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
 import app.com.zenith.Adapter.AdminjobinformationAdapter;
 import app.com.zenith.Model.AdminSetget;
 import app.com.zenith.R;
-import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
 public class AdminJobInformation extends AppCompatActivity {
     // TODO Activity for AdminJobInformation Page  **** Sanjay Umaraniya *******
-    private TextView admin_jobinformation_empname;
-    private TextView admin_jobinformation_eventcount;
-    private Button admin_jobinformation_btnaddshift;
-    private ListView admin_jobinformation_lv;
-    private AdminSetget adminSetget;
-    private ArrayList<AdminSetget> arrayList;
-    private Context context = this;
-    private ImageView backbtn;
-    private Button admin_jobinformation_btnemplist;
+    public TextView admin_jobinformation_empname;
+    public TextView admin_jobinformation_eventcount;
+    public Button admin_jobinformation_btnaddshift;
+    public ListView admin_jobinformation_lv;
+    public AdminSetget adminSetget;
+    public AdminSetget arrayList;
+    public ImageView backbtn;
+    public Button admin_jobinformation_btnemplist;
     public Utils utils;
-    private String name;
-    private String id;
-    private AdminjobinformationAdapter adpter;
-    private String totalshift;
-
-    private String event_eventid;
-    private String event_colorcode;
-    private String event_name;
-    private String event_start_time;
-    private String event_end_time;
-    private String event_hourly_rate;
-
-
-    private TextView job_eventname;
+    public AdminjobinformationAdapter adpter;
 
 
     //TODO    Zenith App ********** Sanjay Umaraniya *************
@@ -71,19 +46,34 @@ public class AdminJobInformation extends AppCompatActivity {
         admin_jobinformation_eventcount = (TextView) findViewById(R.id.admin_jobinformation_eventcount);
         admin_jobinformation_empname = (TextView) findViewById(R.id.admin_jobinformation_empname);
         admin_jobinformation_btnemplist = (Button) findViewById(R.id.admin_jobinformation_btnemplist);
+        admin_jobinformation_lv = (ListView) AdminJobInformation.this.findViewById(R.id.admin_jobinformation_lv);
         admin_jobinformation_btnemplist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context, EmployeeList.class));
+                startActivity(new Intent(AdminJobInformation.this, EmployeeList.class));
                 finish();
             }
         });
 
-        utils = new Utils(context);
-        new AdminGetJobInformation().execute();
+        utils = new Utils(AdminJobInformation.this);
+        setValues();
     }
 
-    private class AdminGetJobInformation extends AsyncTask<String, String, String> {
+    // TODO: 4/26/2017 setthe value of perticular employee
+    private void setValues() {
+        if (getIntent().getExtras() != null) {
+            Gson gson = new Gson();
+            String strObjList = getIntent().getExtras().getString("jobdetails");
+            arrayList = gson.fromJson(strObjList, AdminSetget.class);
+
+            adpter = new AdminjobinformationAdapter(AdminJobInformation.this, arrayList);
+            admin_jobinformation_lv.setAdapter(adpter);
+        } else {
+            Toast.makeText(AdminJobInformation.this, "Data not found", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /*private class AdminGetJobInformation extends AsyncTask<String, String, String> {
         ProgressDialog pd;
 
         @Override
@@ -105,48 +95,23 @@ public class AdminJobInformation extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             // Delete API http://181.224.157.105/~hirepeop/host2/zenith_coach/api/delete_employee_event.php?event_id=
-
-
             pd.dismiss();
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                if (jsonObject.getString("status").equalsIgnoreCase("true")) {
-                    JSONArray array = jsonObject.getJSONArray("event_detail");
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObj = array.getJSONObject(i);
-                        JSONArray datearray = jsonObj.getJSONArray("event_detail");
-                        for (int j = 0; j < datearray.length(); j++) {
-                            JSONObject secobj = datearray.getJSONObject(j);
-                            if (secobj.isNull("club")) {
-                            /*    adminSetget = new AdminSetget();
-                                adminSetget.setEvent_name(event_name);*/
-
-                                if (getIntent().getExtras() != null)
-                                {
-                                    Gson gson = new Gson();
-                                    String strObj = getIntent().getExtras().getString("jobdetails");
-                                    adminSetget = gson.fromJson(strObj, AdminSetget.class);
-                                    admin_jobinformation_eventcount.setText(adminSetget.getEvent_name());
-
-                                    adminSetget.getEvent_name();
-                                    adminSetget.getE_shift();
-                                     adminSetget.getEvent_id();
-                                    adminSetget.getEvent_start_time();
-                                    adminSetget.getEvent_end_time();
-                                    adminSetget.getEvent_hourly_rate();
-                                    adminSetget.getEvent_colorcode();
-                                } else {
-                                    Toast.makeText(context, "Data Not Found", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-                        arrayList.add(adminSetget);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (getIntent().getExtras() != null) {
+                Gson gson = new Gson();
+                String strObj = getIntent().getExtras().getString("jobdetails");
+                adminSetget = gson.fromJson(strObj, AdminSetget.class);
+                adminSetget.getEvent_name();
+                adminSetget.getE_shift();
+                adminSetget.getEvent_id();
+                adminSetget.getEvent_start_time();
+                adminSetget.getEvent_end_time();
+                adminSetget.getEvent_hourly_rate();
+                adminSetget.getEvent_colorcode();
+            } else {
+                Toast.makeText(context, "Data Not Found", Toast.LENGTH_SHORT).show();
             }
-            if (arrayList.size() > 0) {
+
+         if (arrayList.size() > 0) {
                 admin_jobinformation_lv = (ListView) AdminJobInformation.this.findViewById(R.id.admin_jobinformation_lv);
                 adpter = new AdminjobinformationAdapter(context, arrayList);
                 admin_jobinformation_lv.setAdapter(adpter);
@@ -164,5 +129,5 @@ public class AdminJobInformation extends AppCompatActivity {
                 Toast.makeText(context, "Data Not Found ? Please Try Again.", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+        }*/
 }
