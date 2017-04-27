@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_employee_total_working_hours"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.com.zenithemployee.Activity.EmployeeTotalWorkingHoursActivity">
+    <LinearLayout
+        android:id="@+id/payrollchartlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/emptotalworkinghourschart_empname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/bpDarker_blue"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:gravity="center"
+            android:textColor="@color/bpDarker_blue"
+            android:text="Monthly Working"
+            android:textSize="@dimen/_15sdp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/payrollchartlayout2"
+        android:layout_below="@+id/payrollchartlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/linechart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/payrollchartlayout2"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:gravity="center"
+            android:textColor="@color/bpDarker_blue"
+            android:text="Income by Job"
+            android:textSize="@dimen/_15sdp" />
+
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>

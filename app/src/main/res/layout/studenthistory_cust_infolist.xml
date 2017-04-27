@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_darklight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_darklight"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_gravity="left"
+            android:layout_height="wrap_content"
+            android:background="@color/color_darklight"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_stud_matchdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="yyyy/MM/dd"
+                android:textColor="@color/shift__name_label_color_white"
+                android:textSize="@dimen/_16sdp" />
+
+            <TextView
+                android:id="@+id/set1_score_team1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set 1 :"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView6v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set 2 :"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set 3 :"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_darklight"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_stud_team_one_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="teamonename"
+                android:gravity="left"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set1_score_team1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="First"
+
+                android:gravity="left"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set2_score_team1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Second"
+                android:gravity="left"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set3_score_team1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Third"
+                android:gravity="left"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/color_darklight"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textSize="@dimen/_14sdp"
+                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:text="VS"
+                android:id="@+id/textView4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_darklight"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_team_two_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="teamtwoname"
+                android:gravity="right"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set1_score_team2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="First"
+                android:gravity="right"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set2_score_team2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Second"
+                android:gravity="right"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/studenthistory_fragment_set3_score_team2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Third"
+                android:gravity="right"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/employee_list_img"
+            android:layout_width="@dimen/_65sdp"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            android:layout_height="@dimen/_65sdp"
+            />
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@android:color/black"
+                android:id="@+id/employee_list_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_3sdp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/employee_list_coachname"
+                    android:layout_width="match_parent"
+                    android:textColor="@android:color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Coach" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_3sdp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:id="@+id/employee_list_datetime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ShiftName" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_35sdp"
+                android:gravity="center_vertical"
+                android:src="@drawable/employeelist_shareimage"
+                android:layout_height="match_parent"
+                android:id="@+id/employee_list_imageplayroll_chart" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

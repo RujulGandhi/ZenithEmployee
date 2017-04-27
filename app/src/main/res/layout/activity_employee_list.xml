@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_employee_list"
+    android:layout_width="match_parent"
+    android:weightSum="4"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="app.com.zenith.Activity.EmployeeList">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/employeelist_cust_toolbar"/>
+
+
+
+    <LinearLayout
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/employee_getlistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+            <Button
+                android:background="@drawable/shift_unpaide_round_blue_button"
+                android:id="@+id/admin_employee_list_btnshowchart"
+                android:layout_width="match_parent"
+                android:text="+"
+                android:textColor="@color/classschedual_bluelight"
+                android:textSize="@dimen/_25sdp"
+                android:layout_height="wrap_content" />
+          </LinearLayout>
+
+</LinearLayout>

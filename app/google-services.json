@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "327924204108",
+    "firebase_url": "https://zenith-9c8ae.firebaseio.com",
+    "project_id": "zenith-9c8ae",
+    "storage_bucket": "zenith-9c8ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327924204108:android:f98775995cae6e57",
+        "android_client_info": {
+          "package_name": "app.com.zenith"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327924204108-a5p7idn1p7pgf8memorjo4f62pa1clsd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.zenith",
+            "certificate_hash": "1e1b0268bd3f283050b7bc33bb2942d08078e6b5"
+          }
+        },
+        {
+          "client_id": "327924204108-q8a04jqs77lb67eqbqorr2hpc7jltgie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3ZEKQL34RWwEdxpwrjtwwBnNc_Qpavcs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327924204108-q8a04jqs77lb67eqbqorr2hpc7jltgie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

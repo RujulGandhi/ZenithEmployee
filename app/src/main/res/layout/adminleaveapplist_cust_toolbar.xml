@@ -1,0 +1,35 @@
+
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adminleavapplist_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/button_blue">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/button_blue">
+
+        <ImageView
+            android:id="@+id/adminleavapplist__backbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-20dp"
+            android:padding="10dp"
+            android:src="@drawable/jobsandshiftbackarrowimage" />
+
+        <TextView
+            android:id="@+id/adminleavapplist__title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leave Request"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+</android.support.v7.widget.Toolbar>

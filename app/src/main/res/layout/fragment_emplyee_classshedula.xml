@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.com.zenith.Fragment.EmplyeeClassshedulaFragment">
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="251dp"
+        android:orientation="vertical">
+       <com.github.sundeepk.compactcalendarview.CompactCalendarView
+           xmlns:app="http://schemas.android.com/apk/res-auto"
+           android:id="@+id/compactcalendar_view"
+           android:layout_width="fill_parent"
+           android:paddingRight="10dp"
+           android:paddingLeft="10dp"
+           android:layout_height="wrap_content"
+           app:compactCalendarTargetHeight="250dp"
+           app:compactCalendarTextSize="12sp"
+           app:compactCalendarBackgroundColor="#ffffff"
+           app:compactCalendarTextColor="#050606"
+           app:compactCalendarCurrentSelectedDayBackgroundColor="#7bb8f4"
+           app:compactCalendarCurrentDayBackgroundColor="#5fd3e7"
+           app:compactCalendarMultiEventIndicatorColor="#1be118"
+           />
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_2sdp"
+            android:text="Training List"
+            android:textStyle="bold"
+            android:textColor="@color/shift__name_label_color_white"
+            android:textSize="@dimen/_14sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/empclassshedule_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

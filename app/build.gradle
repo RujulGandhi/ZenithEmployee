@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "app.com.zenith"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/sdp-master/sdp-android/gradle/wrapper/gradle-wrapper.jar')
+    compile files('libs/android.jar')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.intuit.sdp:sdp-android:1.0.4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.code-troopers.betterpickers:library:3.1.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:support-v4:25.0.2'
+    compile 'net.gotev:uploadservice:2.1'
+    compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'junit:junit:4.12'
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    compile 'com.github.markushi:circlebutton:1.1'
+    compile 'petrov.kristiyan:colorpicker-library:1.1.4'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'jp.wasabeef:richeditor-android:1.2.2'
+    compile 'com.github.sundeepk:compact-calendar-view:2.0.1'
+    compile 'com.koushikdutta.ion:ion:2.1.9'
+    compile 'com.google.firebase:firebase-core:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.android.support:multidex:1.0.1'
+
+}
+apply plugin: 'com.google.gms.google-services'

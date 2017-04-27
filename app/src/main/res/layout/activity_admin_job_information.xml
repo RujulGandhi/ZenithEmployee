@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="app.com.zenith.Activity.AdminJobInformation">
+
+    <include
+        android:id="@+id/jobinformation_cust_toolbar"
+        layout="@layout/jobinformation_cust_toolbar"/>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_weight="1"
+            android:background="@drawable/image_bg"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/admin_jobinformation_empname"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@+id/jobinformation_cust_toolbar"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="@drawable/admin_jobinformation_textline"
+                android:gravity="center_horizontal|center"
+                android:text="Employee Name"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/admin_jobinformation_eventcount"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <ListView
+                android:id="@+id/admin_jobinformation_lv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/admin_jobinformation_btnemplist"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/shift_unpaide_round_blue_button"
+            android:text="+"
+            android:textSize="@dimen/_22sdp" />
+    </LinearLayout>
+</LinearLayout>

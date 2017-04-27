@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="application_background">#ecf9ff</color>
+    <color name="button_blue">#46bcd8</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="application_black">#1a1a22</color>
+    <color name="text_red">#AD0434</color>
+    <color name="text_yellow">#FFE25D</color>
+    <color name="text_green">#2E9A37</color>
+    <color name="gray">#aba79b</color>
+    <color name="blue">#C2E0EA</color>
+    <color name="shift__name_label_1">#88C5D7</color>
+    <color name="shift_page_bg">#FEEEEF</color>
+    <color name="shift__name_label_color_white">#FFFFFF</color>
+    <color name="shift_big_circle_bg">#58B2CC</color>
+    <color name="shift_txt_circlecolor1">#F15B67</color>
+    <color name="shift_txt_circlecolor2">#F4858E</color>
+    <color name="shift_txt_circlecolor3">#F599B0</color>
+    <color name="shift_txt_circlecolor4">#DC6E9D</color>
+    <color name="shift_txt_circlecolor5">#B62079</color>
+    <color name="shift_txt_circlecolor6">#872369</color>
+    <color name="shift_txt_circlecolor7">#612B5C</color>
+    <color name="admin_jobinformation_dark">#737073</color>
+    <color name="classschedual_bluelight">#5189AE</color>
+    <color name="classschedual_bluedark">#396B8E</color>
+    <color name="classshedual_red_light">#AF5151</color>
+    <color name="classshedual_red_dark">#8D3738</color>
+    <color name="classshedual_green_light">#3E842B</color>
+    <color name="classshedual_green_dark">#286518</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="color_darklight">#9fe2dfdf</color>
+    <color name="adminjobshiftunpaidbutton_bluelight">#67d1d6</color>
+
+
+</resources>

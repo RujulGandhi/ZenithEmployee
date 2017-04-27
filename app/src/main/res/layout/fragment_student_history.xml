@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="app.com.zenith.Fragment.StudentHistoryFragment">
+
+    <LinearLayout
+        android:background="@color/color_darklight"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp">
+
+        <TextView
+            android:id="@+id/studenthistory_fragment_username"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Name"
+            android:textSize="@dimen/_16sdp" />
+
+        <TextView
+            android:id="@+id/studenthistory_fragment_txtview"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="@string/studenttxthistory"
+            android:textSize="@dimen/_15sdp" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="@dimen/_3sdp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/studenthistory_fragment_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </LinearLayout>

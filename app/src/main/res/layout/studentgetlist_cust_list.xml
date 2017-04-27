@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/student_list_studimg"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_margin="@dimen/_5sdp"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="@dimen/_2sdp"
+            android:layout_height="@dimen/_50sdp"
+            />
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@android:color/black"
+                android:id="@+id/student_list_studname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Name" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/admin_jobinformation_dark"
+                    android:id="@+id/student_list_studschoolname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Scholl Name" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                android:id="@+id/student_joblist_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Since"     />
+
+                <TextView
+                    android:id="@+id/student_list_studjoindate"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Date" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

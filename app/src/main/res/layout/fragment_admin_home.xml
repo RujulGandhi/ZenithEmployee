@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <!-- FIRST LAYOUT MAIN-->
+        <LinearLayout
+            android:id="@+id/classshedual_layoutid1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_weight="1"
+            android:background="@color/classschedual_bluelight"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/classshedualprofileemploye" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/admin_total_emp_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="right"
+                    android:text="1"
+                    android:textColor="@color/shift__name_label_color_white"
+                    android:textSize="@dimen/_20sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="right"
+                    android:text="@string/classschedual_totatlemployees"
+                    android:textColor="@color/shift__name_label_color_white"
+                    android:textSize="@dimen/_14sdp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- FIRST LAYOUT SUB-->
+        <LinearLayout
+            android:id="@+id/classshedual_layoutid2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/classshedual_layoutid1"
+            android:background="@color/classschedual_bluedark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:text="@string/classschedual_viewmore"
+                android:textColor="@color/shift__name_label_color_white"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/classscheduelsendarrow"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- SECOND LAYOUT MAIN-->
+        <LinearLayout
+            android:id="@+id/classshedual_layoutid3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/classshedual_layoutid2"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@color/classshedual_green_light"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/classshedualstudent"
+                android:scaleType="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/admin_total_std_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="right"
+                    android:text="1"
+                    android:textColor="@color/shift__name_label_color_white"
+                    android:textSize="@dimen/_20sdp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="right"
+                    android:text="Total Student"
+                    android:textColor="@color/shift__name_label_color_white"
+                    android:textSize="@dimen/_14sdp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- SECOND LAYOUT SUB-->
+        <LinearLayout
+            android:id="@+id/classshedual_layoutid4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/classshedual_layoutid3"
+            android:background="@color/classshedual_green_dark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:text="@string/classschedual_viewmore"
+                android:textColor="@color/shift__name_label_color_white"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/classscheduelsendarrow"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Calender Layout -->
+        <LinearLayout
+            android:id="@+id/classshedual_layoutid5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/classshedual_layoutid4"
+            android:layout_marginTop="@dimen/_6sdp">
+
+            <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/admin_compactcalendar_view"
+                android:layout_width="match_parent"
+                android:layout_height="209dp"
+                app:compactCalendarBackgroundColor="#f7f7f7"
+                app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
+                app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
+                app:compactCalendarMultiEventIndicatorColor="#fff"
+                app:compactCalendarTargetHeight="250dp"
+                app:compactCalendarTextColor="#561010"
+                app:compactCalendarTextSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/classshedual_layoutid4"
+            android:layout_marginTop="@dimen/_6sdp">
+
+
+            <Button
+                android:id="@+id/admin_addjobshift"
+                android:background="@drawable/ic_adminhomebtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:textSize="@dimen/_25sdp"
+                android:textColor="@color/classshedual_green_dark"
+                android:text="+" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
