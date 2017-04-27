@@ -44,9 +44,6 @@ public class AdminJoblistFragment extends Fragment {
     public Utils utils;
     TextView adminjoblist_txteventcount;
 
-    public AdminJoblistFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
