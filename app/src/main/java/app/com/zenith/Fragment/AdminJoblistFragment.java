@@ -42,7 +42,10 @@ public class AdminJoblistFragment extends Fragment {
     Context context;
     Button admin_joblist_btnaddshift;
     public Utils utils;
-    TextView adminjoblist_txteventcount;
+    TextView adminjoblist_Total;
+    private String strTotalJobs;
+    private String strTotalEVENT;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,7 +53,7 @@ public class AdminJoblistFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_admin_joblist, container, false);
         Button admin_joblist_btnaddshift = (Button) view.findViewById(R.id.admin_joblist_addbtnshift);
         list = (ListView) view.findViewById(R.id.admin_joblist_lv);
-        adminjoblist_txteventcount = (TextView) view.findViewById(R.id.admin_joblist_eventcount);
+        adminjoblist_Total = (TextView) view.findViewById(R.id.admin_joblist_eventcount);
 
         utils = new Utils(getActivity());
 
@@ -83,10 +86,11 @@ public class AdminJoblistFragment extends Fragment {
             try {
                 JSONObject jsonObject = new JSONObject(s);
                 if (jsonObject.getString("status").equalsIgnoreCase("true")) {
-                    String totalEvent = jsonObject.getString("total_event");
-                    adminjoblist_txteventcount.setText(totalEvent);
                     JSONArray array = jsonObject.getJSONArray("event_detail");
-                    for (int i = 0; i < array.length(); i++) {
+                    for (int i = 0; i < array.length(); i++)
+                    {
+                        strTotalJobs= String.valueOf(array.length());
+                        adminjoblist_Total.setText(strTotalJobs+" Jobs");
                         JSONObject empobj = array.getJSONObject(i);
                         setget = new AdminSetget();
                         setget.setE_id(empobj.getString("emp_id"));
@@ -94,14 +98,13 @@ public class AdminJoblistFragment extends Fragment {
                         setget.setE_shift(empobj.getString("emp_shift"));
                         setget.setE_img(empobj.getString("emp_image"));
                         setget.setE_date(empobj.getString("emp_join_date"));
-
                         JSONArray datearray = empobj.getJSONArray("event_detail");
-                        ArrayList<EventDetails> arrayEventDetails = new ArrayList<>();
-                        for (int j = 0; j < datearray.length(); j++) {
-                            JSONObject dateobj = datearray.getJSONObject(j);
-                            EventDetails eventDetails = new EventDetails();
 
-                            //JSONObject ProductName=Products.getJSONObject(j);
+                        ArrayList<EventDetails> arrayEventDetails = new ArrayList<>();
+                        for (int j = 0; j < datearray.length(); j++)
+                        {
+                            EventDetails eventDetails = new EventDetails();
+                            JSONObject dateobj = datearray.getJSONObject(j);
                             eventDetails.setEvent_date(dateobj.getString("event_date"));
                             eventDetails.setEvent_id(dateobj.getString("event_id"));
                             eventDetails.setEvent_name(dateobj.getString("event_name"));

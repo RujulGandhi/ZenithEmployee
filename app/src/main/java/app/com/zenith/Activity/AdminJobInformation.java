@@ -68,66 +68,10 @@ public class AdminJobInformation extends AppCompatActivity {
 
             adpter = new AdminjobinformationAdapter(AdminJobInformation.this, arrayList);
             admin_jobinformation_lv.setAdapter(adpter);
+            admin_jobinformation_eventcount.setText("" + (arrayList.getEventArray().size()));
         } else {
             Toast.makeText(AdminJobInformation.this, "Data not found", Toast.LENGTH_SHORT).show();
         }
     }
 
-    /*private class AdminGetJobInformation extends AsyncTask<String, String, String> {
-        ProgressDialog pd;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            arrayList = new ArrayList<>();
-            pd = new ProgressDialog(AdminJobInformation.this);
-            pd.setMessage("Loading...");
-            pd.setCancelable(false);
-            pd.show();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            return utils.getResponseofGet(Constant.BASE_URL + "get_job&shift.php");
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            // Delete API http://181.224.157.105/~hirepeop/host2/zenith_coach/api/delete_employee_event.php?event_id=
-            pd.dismiss();
-            if (getIntent().getExtras() != null) {
-                Gson gson = new Gson();
-                String strObj = getIntent().getExtras().getString("jobdetails");
-                adminSetget = gson.fromJson(strObj, AdminSetget.class);
-                adminSetget.getEvent_name();
-                adminSetget.getE_shift();
-                adminSetget.getEvent_id();
-                adminSetget.getEvent_start_time();
-                adminSetget.getEvent_end_time();
-                adminSetget.getEvent_hourly_rate();
-                adminSetget.getEvent_colorcode();
-            } else {
-                Toast.makeText(context, "Data Not Found", Toast.LENGTH_SHORT).show();
-            }
-
-         if (arrayList.size() > 0) {
-                admin_jobinformation_lv = (ListView) AdminJobInformation.this.findViewById(R.id.admin_jobinformation_lv);
-                adpter = new AdminjobinformationAdapter(context, arrayList);
-                admin_jobinformation_lv.setAdapter(adpter);
-                admin_jobinformation_lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(context, ""+id+name, Toast.LENGTH_SHORT).show();
-                    }
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-            } else {
-                Toast.makeText(context, "Data Not Found ? Please Try Again.", Toast.LENGTH_SHORT).show();
-            }
-        }
-        }*/
 }

@@ -91,8 +91,8 @@ public class AdminMainActivity extends AppCompatActivity {
                     drawer.openDrawer(GravityCompat.START);
             }
         });
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
         recyclerView = (RecyclerView) navigationView.findViewById(R.id.lst_menu_items);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

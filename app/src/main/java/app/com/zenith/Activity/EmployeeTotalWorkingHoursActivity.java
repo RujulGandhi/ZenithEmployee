@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +34,7 @@ import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
-public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener
-{
+public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener {
     // TODO Activity for Employee TotalWorking Page  **** Sanjay Umaraniya *******
     private LineChart mChart;
     private String emp_Id;
@@ -44,8 +42,7 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
     private TextView emp_Name;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_total_working_hours);
         utils = new Utils(EmployeeTotalWorkingHoursActivity.this);
@@ -82,6 +79,7 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
     public void onChartSingleTapped(MotionEvent me) {
 
     }
+
     @Override
     public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY) {
 
@@ -108,41 +106,36 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
 
     }
 
-    private class totalworkinghoursChart extends AsyncTask<String,String,String>
-    {
+    private class totalworkinghoursChart extends AsyncTask<String, String, String> {
         ProgressDialog pd;
+
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
-            pd=new ProgressDialog(EmployeeTotalWorkingHoursActivity.this);
+            pd = new ProgressDialog(EmployeeTotalWorkingHoursActivity.this);
             pd.setMessage("Loading...");
             pd.setCancelable(false);
             pd.show();
         }
 
         @Override
-        protected String doInBackground(String... params)
-        {
+        protected String doInBackground(String... params) {
             String str_url;
-            Log.d("UserId",""+emp_Id);
-            emp_Id=utils.ReadSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID);
-            str_url=utils.getResponseofGet(Constant.BASE_URL+"get_chart_employee.php?emp_id="+2);
-            Log.d("Response",""+str_url);
+            emp_Id = utils.ReadSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID);
+            str_url = utils.getResponseofGet(Constant.BASE_URL + "get_chart_employee.php?emp_id=" + emp_Id);
             return str_url;
         }
 
         @Override
-        protected void onPostExecute(String s)
-        {
+        protected void onPostExecute(String s) {
             super.onPostExecute(s);
             pd.dismiss();
             try {
                 JSONObject mainObejct = new JSONObject(s);
                 if (mainObejct.getString("status").equalsIgnoreCase("true")) {
                     emp_Name.setText(mainObejct.getString("employee_name"));
-                    utils.WriteSharePrefrence(EmployeeTotalWorkingHoursActivity.this,Constant.USERID,mainObejct.getString("employee_id"));
-                    emp_Id=utils.ReadSharePrefrence(EmployeeTotalWorkingHoursActivity.this,Constant.USERID);
+                    utils.WriteSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID, mainObejct.getString("employee_id"));
+                    emp_Id = utils.ReadSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID);
                     ArrayList<String> xVals = new ArrayList<String>();
                     xVals.add("Jan");
                     xVals.add("Feb");
@@ -189,8 +182,6 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
                     dataSets.add(set1); // add the datasets
                     LineData data = new LineData(xVals, dataSets);
                     mChart.setData(data);
-
-
 
 
                     PieChart pieChart = (PieChart) findViewById(R.id.piechart);
