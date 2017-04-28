@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import app.com.zenith.Activity.Employee_Chart_PayrollActivity;
+import app.com.zenith.Activity.EmployeeList;
 import app.com.zenith.Adapter.PayrollAdapter;
 import app.com.zenith.Model.PayrollSetget;
 import app.com.zenith.R;
@@ -111,8 +111,7 @@ public class PayrollFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_payrollchart:
-
-                Intent intent = new Intent(getActivity(), Employee_Chart_PayrollActivity.class);
+                Intent intent = new Intent(getActivity(), EmployeeList.class);
                 startActivity(intent);
                 break;
         }

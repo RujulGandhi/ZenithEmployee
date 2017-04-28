@@ -35,19 +35,18 @@ import java.util.ArrayList;
 import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
-public class EmployeeTotalEarningActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener
-{
+
+public class EmployeeTotalEarningActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener {
     // TODO Activity for Employee Total Earninig    Page  **** Sanjay Umaraniya *******
     private LineChart mChart;
     private PieChart pieChart;
     private String emp_Id;
-   private String str_url;
+    private String str_url;
     public Utils utils;
-   private TextView emp_Name;
+    private TextView emp_Name;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_total_earning);
         utils = new Utils(EmployeeTotalEarningActivity.this);
@@ -67,8 +66,6 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
         l.setForm(Legend.LegendForm.LINE);
         new totalearningChart().execute();
     }
-
-
 
 
     @Override
@@ -122,33 +119,30 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
 
 
     // TODO TOTAL EARNING CHART ......
-    private class totalearningChart extends AsyncTask<String,String,String>
-    {
+    private class totalearningChart extends AsyncTask<String, String, String> {
         ProgressDialog pd;
+
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
-            pd=new ProgressDialog(EmployeeTotalEarningActivity.this);
+            pd = new ProgressDialog(EmployeeTotalEarningActivity.this);
             pd.setMessage("Loading...");
             pd.setCancelable(false);
             pd.show();
         }
 
         @Override
-        protected String doInBackground(String... params)
-        {
+        protected String doInBackground(String... params) {
 
-            Log.d("UserId",""+emp_Id);
-            emp_Id=utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this,Constant.USERID);
-            str_url=utils.getResponseofGet(Constant.BASE_URL+"get_chart_employee.php?emp_id="+2);
-            Log.d("Response",""+str_url);
+            Log.d("UserId", "" + emp_Id);
+            emp_Id = utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this, Constant.USERID);
+            str_url = utils.getResponseofGet(Constant.BASE_URL + "get_chart_employee.php?emp_id=" + emp_Id);
+            Log.d("Response", "" + str_url);
             return str_url;
         }
 
         @Override
-        protected void onPostExecute(String s)
-        {
+        protected void onPostExecute(String s) {
             super.onPostExecute(s);
             pd.dismiss();
             try {
@@ -220,9 +214,7 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
                     dataSet.setColors(ColorTemplate.LIBERTY_COLORS);
                     dataSet.setColors(ColorTemplate.PASTEL_COLORS);
                     pieChart.setData(data1);
-                }
-                else
-                {
+                } else {
                     Toast.makeText(EmployeeTotalEarningActivity.this, "Data Not Found", Toast.LENGTH_SHORT).show();
                 }
             } catch (JSONException e) {

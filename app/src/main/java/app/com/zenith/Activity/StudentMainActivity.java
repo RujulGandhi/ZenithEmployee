@@ -19,6 +19,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import app.com.zenith.Adapter.StudentNavigationAdapter;
 import app.com.zenith.Fragment.StudentHistoryFragment;
 import app.com.zenith.Fragment.StudentHomeFragment;
@@ -27,13 +28,13 @@ import app.com.zenith.Fragment.StudentTrainingprogram;
 import app.com.zenith.Interface.ClickListener;
 import app.com.zenith.R;
 import app.com.zenith.Utils.RecyclerTouchListener;
+
 import static app.com.zenith.Utils.Utils.ClearaSharePrefrence;
 
-public class StudentMainActivity extends AppCompatActivity
-{
+public class StudentMainActivity extends AppCompatActivity {
     // TODO Activity for Student MainActivity   Page  **** Sanjay Umaraniya *******
     ImageView toolbar_icon;
-     DrawerLayout drawer2;
+    DrawerLayout drawer2;
     public RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private ImageView drawerIcon;
@@ -42,11 +43,9 @@ public class StudentMainActivity extends AppCompatActivity
     private TextView toolbar_title2;
 
     @Override
-    public void onBackPressed()
-    {
-         this.drawer2 = (DrawerLayout) findViewById(R.id.std_drawer_layout);
-        if (drawer2.isDrawerOpen(GravityCompat.START))
-        {
+    public void onBackPressed() {
+        this.drawer2 = (DrawerLayout) findViewById(R.id.std_drawer_layout);
+        if (drawer2.isDrawerOpen(GravityCompat.START)) {
             drawer2.closeDrawer(GravityCompat.START);
         } else {
             final Dialog dialog = new Dialog(StudentMainActivity.this);
@@ -73,8 +72,7 @@ public class StudentMainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_main);
         this.drawer2 = (DrawerLayout) findViewById(R.id.std_drawer_layout);
@@ -82,17 +80,16 @@ public class StudentMainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar_icon = (ImageView) findViewById(R.id.std_toolbar_icon);
         toolbar_title2 = (TextView) findViewById(R.id.std_toolbar_title);
-        toolbar_icon.setOnClickListener(new View.OnClickListener()
-        {
+        toolbar_icon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (!drawer2.isDrawerOpen(GravityCompat.START))
                     drawer2.openDrawer(GravityCompat.START);
             }
         });
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        openDefaultFragment();
         recyclerView = (RecyclerView) navigationView.findViewById(R.id.lst_menu_items);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -132,8 +129,7 @@ public class StudentMainActivity extends AppCompatActivity
                     default:
                         break;
                 }
-                if (fragment != null)
-                {
+                if (fragment != null) {
                     FragmentManager fm = getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.content_student_main, fragment).commit();
@@ -141,5 +137,17 @@ public class StudentMainActivity extends AppCompatActivity
                 }
             }
         }));
+    }
+
+    private void openDefaultFragment() {
+        Fragment fragment = null;
+        fragment = new StudentHomeFragment();
+        toolbar_title2.setText("Home");
+        if (fragment != null) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.content_student_main, fragment).commit();
+            drawer2.closeDrawer(GravityCompat.START);
+        }
     }
 }

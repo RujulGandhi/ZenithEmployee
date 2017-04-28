@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(in);
         } else {
             navigationView = (NavigationView) findViewById(R.id.nav_view);
+            openDefaultFragment();
             recyclerView = (RecyclerView) findViewById(R.id.lst_menu_items);
             layoutManager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(layoutManager);
@@ -165,6 +166,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }));
+        }
+    }
+
+    private void openDefaultFragment() {
+        Fragment fragment = null;
+        fragment = new EmplyeeClassshedulaFragment();
+        toolbar_title2.setText("Home");
+        if (fragment != null) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.content_main, fragment).commit();
+            drawer.closeDrawer(GravityCompat.START);
         }
     }
 }

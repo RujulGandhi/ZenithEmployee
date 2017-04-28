@@ -16,6 +16,7 @@
     <string name="somethingwentwrong">Something went wrong</string>
     <string name="error_nointernet">Please check your internet connection.</string>
     <string name="annualleave">Annual Leave</string>
+    <string name="jobsshifts1">Jobs &amp; Shifts</string>
     <string name="medicalleave">Medical Leave</string>
     <string name="unpaidleave">Unpaid Leave</string>
     <string name="leaveapplication">Leave Application</string>
@@ -34,7 +35,6 @@
     <string name="hint_emailedittextview">Hello@zenithbadminton.com.sg</string>
     <string name="hint_passwordedittext">Password </string>
     <string name="hint_confirmpasswordedittext">Confirm Password</string>
-    <string name="jobsshifts1">Jobs And Shifts</string>
     <string name="classschedules1">Class Schedules</string>
     <string name="trainingprogram1">Training Program</string>
     <string name="leaveapplication1">Leave Application</string>

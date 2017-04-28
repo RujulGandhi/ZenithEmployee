@@ -10,13 +10,12 @@ import android.widget.TabHost;
 
 import app.com.zenith.R;
 
-public class Employee_Chart_PayrollActivity extends TabActivity
-{
+public class Employee_Chart_PayrollActivity extends TabActivity {
     // TODO Activity for Payroll-> EmployeeChart  Page  **** Sanjay Umaraniya *******
 
     private Toolbar toolbar;
     private ImageView empchart_btncancel;
-   private TabHost tabHost;
+    private TabHost tabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +24,14 @@ public class Employee_Chart_PayrollActivity extends TabActivity
         toolbar = (Toolbar) findViewById(R.id.empchart_toolbar);
         setSupportActionBar(toolbar);
         empchart_btncancel = (ImageView) findViewById(R.id.empcharttoolbar_btncancle);
-        empchart_btncancel.setOnClickListener(new View.OnClickListener()
-        {
+        empchart_btncancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 finish();
             }
         });
 
-         tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
+        tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
         TabHost.TabSpec spec; // Reusable TabSpec for each tab
         spec = tabHost.newTabSpec("Total Earning"); // Create a new TabSpec using tab host
         spec.setIndicator("Total Earning"); // set the “HOME” as an indicator
@@ -47,13 +44,13 @@ public class Employee_Chart_PayrollActivity extends TabActivity
         spec.setContent(intent3);
         tabHost.addTab(spec);
         tabHost.setCurrentTab(1);
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener()
-        {
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
             }
         });
     }
+
     private void setSupportActionBar(Toolbar toolbar) {
         this.toolbar = toolbar;
     }
