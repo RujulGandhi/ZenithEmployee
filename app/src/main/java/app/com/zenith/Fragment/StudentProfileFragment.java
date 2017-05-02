@@ -146,7 +146,7 @@ public class StudentProfileFragment extends Fragment
         @Override
         protected String doInBackground(String... params)
         {
-            stud_id = utils.ReadSharePrefrence(getActivity(), Constant.USERID_STUDENT);
+            stud_id = utils.ReadSharePrefrence(getActivity(), Constant.USERID);
             Log.d("ID", "" + stud_id);
             String str_url = utils.getResponseofGet(Constant.BASE_URL + "stu_change_password.php?" + "stu_id=" + stud_id + "&stu_password=" + strpassword);
             Log.d("URL", "" + str_url);
@@ -200,7 +200,7 @@ public class StudentProfileFragment extends Fragment
 
         @Override
         protected String doInBackground(String... params)
-        {  stud_id = utils.ReadSharePrefrence(getActivity(), Constant.USERID_STUDENT);
+        {  stud_id = utils.ReadSharePrefrence(getActivity(), Constant.USERID);
             String strurl_updateprofil = utils.getResponseofGet(Constant.BASE_URL + "stu_update_profile.php?" + "stu_id=" + stud_id + "&stu_firstname=" + strusername + "&stu_email=" + stremailid);
             Log.d("URL", "" + strurl_updateprofil);
             return utils.MakeServiceCall(strurl_updateprofil);

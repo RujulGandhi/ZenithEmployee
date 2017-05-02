@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -22,6 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import app.com.zenith.Activity.TrainingDetailsActivity;
+import app.com.zenith.Activity.Trainingprogram_addpostActivity;
 import app.com.zenith.Adapter.AdminTrainingProgramAdapter;
 import app.com.zenith.Model.AdmintrainingprogramSetget;
 import app.com.zenith.R;
@@ -42,6 +44,7 @@ public class AdminTrainingProgram extends Fragment {
     public Utils utils;
     private Toolbar toolbar;
     public AdminTrainingProgramAdapter adapter;
+    private Button admin_trainingprogram_btnaddpost;
 
 
     @Override
@@ -49,6 +52,15 @@ public class AdminTrainingProgram extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_training_program, container, false);
         utils = new Utils(getActivity());
+        admin_trainingprogram_btnaddpost = (Button) view.findViewById(R.id.admin_trainingprogram_btnaddpost);
+        admin_trainingprogram_btnaddpost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Trainingprogram_addpostActivity.class);
+                getActivity().startActivity(in);
+                onPause();
+            }
+        });
         new ADminTrainingProgramGetList().execute();
         return view;
     }

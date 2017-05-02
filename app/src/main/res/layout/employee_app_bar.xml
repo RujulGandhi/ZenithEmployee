@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,9 @@
         android:id="@+id/emp_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/button_blue">
+        android:background="@color/button_blue"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,14 +21,13 @@
             android:background="@color/button_blue">
 
             <TextView
-                android:layout_centerHorizontal="true"
                 android:id="@+id/emp_toolbar_title"
                 android:layout_width="match_parent"
-                android:text="Home"
-                android:textColor="@color/shift__name_label_color_white"
-                android:gravity="center_horizontal|center_vertical"
                 android:layout_height="@dimen/_50sdp"
-                />
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Home"
+                android:textColor="@color/shift__name_label_color_white" />
 
             <ImageView
                 android:id="@+id/emp_toolbar_icon"

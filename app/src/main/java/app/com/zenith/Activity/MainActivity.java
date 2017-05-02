@@ -17,14 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
 
 import app.com.zenith.Adapter.NavigationAdapter;
 import app.com.zenith.Fragment.EmployeeTrainingProgramFragment;
@@ -33,7 +29,6 @@ import app.com.zenith.Fragment.LeaveApplication;
 import app.com.zenith.Fragment.PayrollFragment;
 import app.com.zenith.Fragment.ProfileFragment;
 import app.com.zenith.Interface.ClickListener;
-import app.com.zenith.Model.PayrollSetget;
 import app.com.zenith.R;
 import app.com.zenith.Utils.RecyclerTouchListener;
 
@@ -45,21 +40,11 @@ public class MainActivity extends AppCompatActivity {
     // TODO Activity for Employee MainActivity  Page  **** Sanjay Umaraniya *******
     public RecyclerView recyclerView;
     public LinearLayoutManager layoutManager;
-    private ImageView drawerIcon;
-    private TextView drawerTitle;
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private TextView toolbar_title2;
     private ImageView toolbar_icon;
-    private TextView payroll_textstartdate, payroll_textenddate;
-    private Calendar myCalendar = Calendar.getInstance();
-    private CalendarView simpleCalendarView, simpleCalendarView1;
-    private int mYear, mMonth, mDay, mHour, mMinute;
-    private ListView lv;
-    public PayrollSetget setget;
     public ArrayList<Integer> arrayList;
-    private HashMap<String, String> hashMap;
-    private TextView textView_name, textView_hours, textView_price;
     private NavigationView navigationView;
 
 

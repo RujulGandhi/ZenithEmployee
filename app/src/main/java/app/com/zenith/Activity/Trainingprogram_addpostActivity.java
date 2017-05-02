@@ -29,8 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 
 import app.com.zenith.R;
@@ -261,25 +259,31 @@ public class Trainingprogram_addpostActivity extends AppCompatActivity {
                 } else {
                     utils = new Utils(context);
                     //http://181.224.157.105/~hirepeop/host2/zenith_coach/api/add_training_program.php?title=abcd&subtitle=xyzz&subject=aa&image=1.jpg&video=1.mp4&content=xyz
-                    Log.d("ion_image", "" + imgDecodableString);
-                    try {
-                        Ion.with(Trainingprogram_addpostActivity.this)
-                                .load(Constant.BASE_URL + "add_training_program.php?")
-                                .setMultipartParameter("title", URLEncoder.encode(str_admin_title, "UTF-8"))
-                                .setMultipartParameter("subtitle", URLEncoder.encode(str_admin_subtitle, "UTF-8"))
-                                .setMultipartParameter("subject", URLEncoder.encode(str_admin_subject, "UTF-8"))
-                                .setMultipartParameter("content", URLEncoder.encode(str_admin_content, "UTF-8"))
-                                .setMultipartFile("file", new File(imgDecodableString))
-                                .asString()
-                                .setCallback(new FutureCallback<String>() {
-                                    @Override
-                                    public void onCompleted(Exception e, String result) {
-                                        Log.d("JSONRESULT@@" + "", result);
+                    Ion.with(Trainingprogram_addpostActivity.this)
+                            .load(Constant.BASE_URL + "add_training_program.php")
+                            .setMultipartParameter("title", str_admin_title)
+                            .setMultipartParameter("subtitle", str_admin_subtitle)
+                            .setMultipartParameter("subject", str_admin_subject)
+                            .setMultipartParameter("content", str_admin_content)
+                            .setMultipartFile("file", new File(imgDecodableString))
+                            .asString()
+                            .setCallback(new FutureCallback<String>() {
+                                @Override
+                                public void onCompleted(Exception e, String result) {
+                                    JSONObject object = null;
+                                    try {
+                                        object = new JSONObject(result);
+                                        if (object.getString("status").equalsIgnoreCase("true")) {
+
+                                        } else {
+
+                                        }
+                                    } catch (JSONException e1) {
+                                        e1.printStackTrace();
                                     }
-                                });
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+
+                                }
+                            });
                 }
 
             }

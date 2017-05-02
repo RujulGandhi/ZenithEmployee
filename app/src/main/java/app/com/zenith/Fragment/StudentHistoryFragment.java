@@ -26,7 +26,7 @@ import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
-import static app.com.zenith.Utils.Constant.USERID_STUDENT;
+import static app.com.zenith.Utils.Constant.USERID;
 import static app.com.zenith.Utils.Constant.USERNAME;
 
 /**
@@ -54,7 +54,7 @@ public class StudentHistoryFragment extends Fragment {
         utils = new Utils(getActivity());
         new StudenthistorygetList().execute();
         studenthistory_username.setText(utils.ReadSharePrefrence(getActivity(), USERNAME));
-        str_studid = utils.ReadSharePrefrence(getActivity(), USERID_STUDENT);
+        str_studid = utils.ReadSharePrefrence(getActivity(), USERID);
         return view;
     }
 

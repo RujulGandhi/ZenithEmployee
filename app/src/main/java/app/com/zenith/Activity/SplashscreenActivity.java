@@ -31,8 +31,8 @@ public class SplashscreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
         utils = new Utils(SplashscreenActivity.this);
         struserid = utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID);
-        stradminid = utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID_ADMIN);
-        strstudentid = utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID_STUDENT);
+        stradminid = utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID);
+        strstudentid = utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -62,7 +62,7 @@ public class SplashscreenActivity extends AppCompatActivity {
                 }
 //
 //                if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERROLE).equals(ADMIN)) {
-//                    if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID_ADMIN).equals("")) {
+//                    if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID).equals("")) {
 //                        Intent in = new Intent(SplashscreenActivity.this, LoginActivity.class);
 //                        in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 //                        startActivity(in);
@@ -88,7 +88,7 @@ public class SplashscreenActivity extends AppCompatActivity {
 //                    }
 //                }
 //                if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERROLE).equals(STUDENT)) {
-//                    if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID_STUDENT).equals("")) {
+//                    if (Utils.ReadSharePrefrence(SplashscreenActivity.this, Constant.USERID).equals("")) {
 //                        Intent in = new Intent(SplashscreenActivity.this, LoginActivity.class);
 //                        in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 //                        startActivity(in);

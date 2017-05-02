@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:fillViewport="true"
     android:orientation="vertical">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,24 +21,31 @@
             android:id="@+id/adminleaveapp_list_layoutid1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/adminleavapplist_toolbar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/adminleavapplist_toolbar"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/admin_leaveapps_getlist_img"
                     android:layout_width="@dimen/_55sdp"
                     android:layout_height="@dimen/_55sdp"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="2dp" />
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:src="@drawable/ic_placeholder"
+                    app:civ_border_color="@color/gray"
+                    app:civ_border_width="1dp" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/_10sdp"
@@ -80,16 +88,16 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/admin_leaveapps_list_totalday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:gravity="right"
+                        android:gravity="center_horizontal"
                         android:text="5"
                         android:textColor="@color/admin_jobinformation_dark" />
 
@@ -97,230 +105,227 @@
                         android:id="@+id/admin_leaveapps_list_txtday"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:gravity="right"
+                        android:gravity="center_horizontal"
                         android:text="Day" />
                 </LinearLayout>
 
-                <LinearLayout
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:gravity="right"
-                    android:orientation="vertical">
+                <TextView
+                    android:id="@+id/admin_leaveapps_list_leavetype"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:text="Leave Type"
+                    android:textColor="@android:color/holo_blue_dark" />
 
-                    <TextView
-                        android:id="@+id/admin_leaveapps_list_leavetype"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Leave Type"
-                        android:textColor="@android:color/holo_blue_dark" />
-                </LinearLayout>
             </LinearLayout>
 
             <ImageView
+
                 android:id="@+id/viewselecterline"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_3sdp"
                 android:background="@color/bpLine_dark" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/adminleaveapp_list_layoutid5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/adminleaveapp_list_layoutid1"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:weightSum="2">
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/adminleaveapp_list_layoutid5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewselecterline"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_below="@+id/adminleaveapp_list_layoutid1"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:weightSum="2">
+
 
                 <LinearLayout
-                    android:id="@+id/realativelaout3"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="From Date:"
-                        android:textColor="@color/black" />
-
-                    <TextView
-                        android:id="@+id/admin_leaveapps_getlist_from_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:text=""
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:background="#346B7D"
-                    android:gravity="center_vertical"
+                    android:layout_below="@id/viewselecterline"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txt_dayuxsed"
+                    <LinearLayout
+                        android:id="@+id/realativelaout3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="DAYS USED"
-                        android:textColor="@color/shift__name_label_color_white" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/admin_leaveapps_getlist_leavedays_used"
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="From Date:-"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/admin_leaveapps_getlist_from_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="Date"
-                        android:textColor="@color/shift__name_label_color_white" />
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="#346B7D"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_dayuxsed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="DAYS USED"
+                            android:textColor="@color/shift__name_label_color_white" />
+
+                        <TextView
+                            android:id="@+id/admin_leaveapps_getlist_leavedays_used"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Date"
+                            android:textColor="@color/shift__name_label_color_white" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/adminleaveapp_list_layoutid4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/viewselecterline"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/realativeflaout3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="To Date :-"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/admin_leaveapps_getlist_to_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="#346B7D"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_fdayuxsed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:maxLines="1"
+                            android:text="DAYS AVAILABLE"
+                            android:textColor="@color/shift__name_label_color_white" />
+
+                        <TextView
+                            android:id="@+id/admin_leaveapps_getlist_leavedays_available"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Date"
+                            android:textColor="@color/shift__name_label_color_white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/adminleaveapp_list_layoutid4"
-                android:layout_width="wrap_content"
+                android:id="@+id/adminleaveapp_list_layoutid6"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewselecterline"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_below="@+id/adminleaveapp_list_layoutid5"
+                android:layout_marginTop="@dimen/_15sdp">
 
-                <LinearLayout
-                    android:id="@+id/realativeflaout3"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:text="Note"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/adminleaveapp_list_layoutid7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminleaveapp_list_layoutid6"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/admin_leaveapps_getlist_leave_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="#C2E1E9"
                     android:gravity="left"
-                    android:orientation="horizontal">
+                    android:padding="@dimen/_10sdp"
+                    android:text="DAYS USED"
+                    android:textColor="@color/black" />
 
-                    <TextView
-                        android:layout_width="match_parent"
+            </LinearLayout>
 
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="To Date :"
-                        android:textColor="@color/black" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adminleaveapp_list_layoutid7"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:gravity="center_horizontal"
+                android:weightSum="2">
 
-                    <TextView
-                        android:id="@+id/admin_leaveapps_getlist_to_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:gravity="right"
-                        android:text=""
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/addpost_btn_reject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:background="#D02330"
+                    android:text="REJECt"
+                    android:textColor="@color/shift__name_label_color_white" />
 
-                <LinearLayout
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:background="#346B7D"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+                <Button
+                    android:id="@+id/addpost_btn_approve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="#9AC154"
+                    android:text="APPROVE"
+                    android:textColor="@color/shift__name_label_color_white" />
 
-                    <TextView
-                        android:id="@+id/txt_fdayuxsed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="DAYS AVAILABLE"
-                        android:textColor="@color/shift__name_label_color_white" />
-
-                    <TextView
-                        android:id="@+id/admin_leaveapps_getlist_leavedays_available"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="Date"
-                        android:textColor="@color/shift__name_label_color_white" />
-
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/adminleaveapp_list_layoutid6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/adminleaveapp_list_layoutid5"
-            android:layout_marginTop="@dimen/_15sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:text="Note"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/adminleaveapp_list_layoutid7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/adminleaveapp_list_layoutid6"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp">
-
-            <TextView
-                android:id="@+id/admin_leaveapps_getlist_leave_notes"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_80sdp"
-                android:background="#C2E1E9"
-                android:gravity="left"
-                android:padding="@dimen/_10sdp"
-                android:text="DAYS USED"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/adminleaveapp_list_layoutid7"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:gravity="center_horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/addpost_btn_reject"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_weight="1"
-                android:background="#D02330"
-                android:text="REJECt"
-                android:textColor="@color/shift__name_label_color_white" />
-
-            <Button
-                android:id="@+id/addpost_btn_approve"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_weight="1"
-                android:background="#9AC154"
-                android:text="APPROVE"
-                android:textColor="@color/shift__name_label_color_white" />
-
-        </LinearLayout>
-
     </RelativeLayout>
 </ScrollView>

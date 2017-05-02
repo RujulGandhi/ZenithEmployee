@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +40,7 @@ public class AdminLeaveFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_leave, container, false);
         utils = new Utils(getActivity());
         new adminLeaveGetList().execute();
@@ -65,7 +63,6 @@ public class AdminLeaveFragment extends Fragment {
         @Override
         protected String doInBackground(String... params) {
             str_url = utils.getResponseofGet(Constant.BASE_URL + "employee_leave_data.php");
-            Log.d("Response", "" + str_url);
             return str_url;
         }
 
@@ -100,8 +97,7 @@ public class AdminLeaveFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (arrayList.size() > 0)
-            {
+            if (arrayList.size() > 0) {
                 adapter = new AdminLeaveAppsAdapter(getActivity(), arrayList);
                 list = (ListView) getActivity().findViewById(R.id.adminleavapp_listview);
                 list.setAdapter(adapter);

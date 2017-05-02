@@ -32,14 +32,12 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * Created by archirayan on 4/29/2016.
  */
-public class Utils
-{
+public class Utils {
     static Context context;
     SharedPreferences sp;
     Location getLocation;
 
-    public Utils(Context context)
-    {
+    public Utils(Context context) {
         this.context = context;
         sp = context.getSharedPreferences(Constant.Prefrence, Context.MODE_PRIVATE);
     }
@@ -206,7 +204,7 @@ public class Utils
         return false;
     }
 
-    public static void WriteSharePrefrence(Context context ,String key, String value) {
+    public static void WriteSharePrefrence(Context context, String key, String value) {
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         final SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
@@ -222,8 +220,7 @@ public class Utils
         return data;
     }
 
-    public static void ClearaSharePrefrence(Context context)
-    {
+    public static void ClearaSharePrefrence(Context context) {
         String data;
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         final SharedPreferences.Editor editor = preferences.edit().clear();
@@ -251,4 +248,5 @@ public class Utils
         }
         return result;
     }
+
 }

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 
 import app.com.zenith.R;
+import app.com.zenith.Utils.Utils;
 
 public class Employee_Chart_PayrollActivity extends TabActivity {
     // TODO Activity for Payroll-> EmployeeChart  Page  **** Sanjay Umaraniya *******
@@ -16,6 +17,8 @@ public class Employee_Chart_PayrollActivity extends TabActivity {
     private Toolbar toolbar;
     private ImageView empchart_btncancel;
     private TabHost tabHost;
+    public Utils utils;
+    private String emp_Id, name, id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +33,33 @@ public class Employee_Chart_PayrollActivity extends TabActivity {
                 finish();
             }
         });
+        utils = new Utils(Employee_Chart_PayrollActivity.this);
+
+        name = getIntent().getExtras().getString("Name");
+        id = getIntent().getExtras().getString("Id");
 
         tabHost = (TabHost) findViewById(android.R.id.tabhost); // initiate TabHost
         TabHost.TabSpec spec; // Reusable TabSpec for each tab
         spec = tabHost.newTabSpec("Total Earning"); // Create a new TabSpec using tab host
         spec.setIndicator("Total Earning"); // set the “HOME” as an indicator
         Intent intent1 = new Intent(this, EmployeeTotalEarningActivity.class);
+        intent1.putExtra("Name", name);
+        intent1.putExtra("Id", id);
         spec.setContent(intent1);
         tabHost.addTab(spec);
+
         spec = tabHost.newTabSpec("Working Hours"); // Create a new TabSpec using tab host
         spec.setIndicator("Working Hours"); // set the “CONTACT” as an indicator
         Intent intent3 = new Intent(this, EmployeeTotalWorkingHoursActivity.class);
+        intent3.putExtra("Name", name);
+        intent3.putExtra("Id", id);
         spec.setContent(intent3);
         tabHost.addTab(spec);
         tabHost.setCurrentTab(1);
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
+
             }
         });
     }

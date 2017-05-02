@@ -19,28 +19,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import app.com.zenith.Adapter.EmployeeListAdapter;
+import app.com.zenith.Adapter.EmployeeListWithoutChartAdapter;
 import app.com.zenith.Model.EmployeeListSetget;
 import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
-public class EmployeeList extends AppCompatActivity {
-    // TODO Activity for Employee List  Page  **** Sanjay Umaraniya *******
+public class AdminEmployeeListwithoutchartActivity extends AppCompatActivity {
+    // TODO Activity for Employee List without Chart    **** Sanjay Umaraniya *******
     private ListView list;
     public EmployeeListSetget employeeListSetget;
     public ArrayList<EmployeeListSetget> arrayList;
     public Context context = this;
     public Utils utils;
-    private EmployeeListAdapter adapter;
+    private EmployeeListWithoutChartAdapter adapter;
     public ImageView employeelist_shareimage, backbtn;
     public Button btn_showchart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_list);
-        utils = new Utils(EmployeeList.this);
+        setContentView(R.layout.activity_admin_employee_listwithoutchart);
+        utils = new Utils(AdminEmployeeListwithoutchartActivity.this);
         backbtn = (ImageView) findViewById(R.id.employeelist_backbutton);
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,14 +52,14 @@ public class EmployeeList extends AppCompatActivity {
         btn_showchart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(EmployeeList.this, AddEmployeeActivity.class);
+                Intent in = new Intent(AdminEmployeeListwithoutchartActivity.this, AddEmployeeActivity.class);
                 startActivity(in);
             }
         });
-        new EmployeegetList().execute();
+        new EmployeegetListwithoutchart().execute();
     }
 
-    private class EmployeegetList extends AsyncTask<String, String, String> {
+    private class EmployeegetListwithoutchart extends AsyncTask<String, String, String> {
         ProgressDialog pd;
 
         @Override
@@ -101,16 +101,17 @@ public class EmployeeList extends AppCompatActivity {
 
             if (arrayList.size() > 0) {
                 list = (ListView) findViewById(R.id.employee_getlistview);
-                adapter = new EmployeeListAdapter(context, arrayList);
+                adapter = new EmployeeListWithoutChartAdapter(context, arrayList);
                 list.setAdapter(adapter);
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        Intent in = new Intent(EmployeeList.this, JobsAndShiftActvity.class);
+                        Intent in = new Intent(AdminEmployeeListwithoutchartActivity.this, JobsAndShiftActvity.class);
                         in.putExtra("Name", String.valueOf((arrayList.get(i).getEmp_listName())));
                         in.putExtra("Id", arrayList.get(i).getEmp_listId());
-                        EmployeeList.this.startActivity(in);
+                        startActivity(in);
+
                     }
                 });
             } else {

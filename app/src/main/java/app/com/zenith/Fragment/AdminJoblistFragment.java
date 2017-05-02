@@ -1,12 +1,10 @@
 package app.com.zenith.Fragment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,38 +23,46 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import app.com.zenith.Activity.AdminJobInformation;
+import app.com.zenith.Activity.EmployeeList;
 import app.com.zenith.Adapter.AdminjoblistAdpter;
 import app.com.zenith.Model.AdminSetget;
 import app.com.zenith.Model.EventDetails;
 import app.com.zenith.R;
+import app.com.zenith.Utils.ConnectionDetector;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
+
+import static app.com.zenith.Utils.Utils.isConnectingToInternet;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AdminJoblistFragment extends Fragment {
-    ListView list;
-    AdminSetget setget;
-    ArrayList<AdminSetget> arrayList;
-    Context context;
-    Button admin_joblist_btnaddshift;
+    public ListView list;
+    public AdminSetget setget;
+    public ArrayList<AdminSetget> arrayList;
     public Utils utils;
-    TextView adminjoblist_Total;
+    private TextView adminjoblist_Total;
     private String strTotalJobs;
-    private String strTotalEVENT;
+    private Button admin_joblist_employeelist;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_joblist, container, false);
-        Button admin_joblist_btnaddshift = (Button) view.findViewById(R.id.admin_joblist_addbtnshift);
         list = (ListView) view.findViewById(R.id.admin_joblist_lv);
+
         adminjoblist_Total = (TextView) view.findViewById(R.id.admin_joblist_eventcount);
-
         utils = new Utils(getActivity());
-
+        admin_joblist_employeelist = (Button) view.findViewById(R.id.admin_joblist_addbtnshift);
+        admin_joblist_employeelist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EmployeeList.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -81,16 +87,14 @@ public class AdminJoblistFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Log.d("RESPONSE", "Admin Joblist..." + s);
             pd.dismiss();
             try {
                 JSONObject jsonObject = new JSONObject(s);
                 if (jsonObject.getString("status").equalsIgnoreCase("true")) {
                     JSONArray array = jsonObject.getJSONArray("event_detail");
-                    for (int i = 0; i < array.length(); i++)
-                    {
-                        strTotalJobs= String.valueOf(array.length());
-                        adminjoblist_Total.setText(strTotalJobs+" Jobs");
+                    for (int i = 0; i < array.length(); i++) {
+                        strTotalJobs = String.valueOf(array.length());
+                        adminjoblist_Total.setText(strTotalJobs + " Jobs");
                         JSONObject empobj = array.getJSONObject(i);
                         setget = new AdminSetget();
                         setget.setE_id(empobj.getString("emp_id"));
@@ -101,8 +105,7 @@ public class AdminJoblistFragment extends Fragment {
                         JSONArray datearray = empobj.getJSONArray("event_detail");
 
                         ArrayList<EventDetails> arrayEventDetails = new ArrayList<>();
-                        for (int j = 0; j < datearray.length(); j++)
-                        {
+                        for (int j = 0; j < datearray.length(); j++) {
                             EventDetails eventDetails = new EventDetails();
                             JSONObject dateobj = datearray.getJSONObject(j);
                             eventDetails.setEvent_date(dateobj.getString("event_date"));
@@ -112,9 +115,7 @@ public class AdminJoblistFragment extends Fragment {
                             eventDetails.setEvent_end_time(dateobj.getString("event_end_time"));
                             eventDetails.setEvent_hourly_rate(dateobj.getString("event_hourly_rate"));
                             eventDetails.setEvent_colorcode(dateobj.getString("event_RGBColor_code"));
-
                             arrayEventDetails.add(eventDetails);
-
                         }
                         setget.setEventArray(arrayEventDetails);
                         arrayList.add(setget);
@@ -150,6 +151,11 @@ public class AdminJoblistFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        new AdminGetJoblist().execute();
+        if (isConnectingToInternet(getActivity())) {
+            new AdminGetJoblist().execute();
+
+        } else {
+            new ConnectionDetector(getActivity()).connectiondetect();
+        }
     }
 }

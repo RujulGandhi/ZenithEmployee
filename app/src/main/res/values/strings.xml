@@ -122,4 +122,6 @@
     <string name="admin_training_addpostbtn">Post</string>
     <string name="simple_ime"/>
     <string name="logout">Logout</string>
+    <string name="plus">+</string>
+    <string name="shift_circle_txtcolor_redark1">Choose your color</string>
 </resources>

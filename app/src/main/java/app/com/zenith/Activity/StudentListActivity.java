@@ -23,8 +23,9 @@ import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
-public class StudentListActivity extends AppCompatActivity
-{
+import static app.com.zenith.Utils.Utils.isConnectingToInternet;
+
+public class StudentListActivity extends AppCompatActivity {
     // TODO Activity for Student List Page  **** Sanjay Umaraniya *******
     private ListView list;
     public StudentListSetget studentListSetget;
@@ -40,7 +41,12 @@ public class StudentListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
         utils = new Utils(StudentListActivity.this);
-        new StudentList().execute();
+        if (isConnectingToInternet(StudentListActivity.this)) {
+            new StudentList().execute();
+        } else {
+            Toast.makeText(StudentListActivity.this, getString(R.string.error_nointernet), Toast.LENGTH_SHORT).show();
+        }
+
         backbtn = (ImageView) findViewById(R.id.studentlist_backbutton);
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override

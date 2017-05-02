@@ -32,8 +32,6 @@ import static app.com.zenith.Utils.Constant.ADMIN_TOTAL_STD;
 import static app.com.zenith.Utils.Constant.EMPLOYEE;
 import static app.com.zenith.Utils.Constant.STUDENT;
 import static app.com.zenith.Utils.Constant.USERID;
-import static app.com.zenith.Utils.Constant.USERID_ADMIN;
-import static app.com.zenith.Utils.Constant.USERID_STUDENT;
 import static app.com.zenith.Utils.Constant.USERNAME;
 import static app.com.zenith.Utils.Constant.USERROLE;
 
@@ -142,7 +140,7 @@ public class LoginActivity extends BaseActivity {
                         strtotal_emp = jsonObject.getInt("total_employee");
                         strtotal_std = jsonObject.getInt("total_student");
 
-                        write(USERID_ADMIN, String.valueOf(struserid));
+                        write(USERID, String.valueOf(struserid));
                         write(USERNAME, username);
                         write(USERROLE, ADMIN);
                         write(ADMIN_TOTAL_EMP, String.valueOf(strtotal_emp));
@@ -175,7 +173,7 @@ public class LoginActivity extends BaseActivity {
                         struserid = object.getInt("stu_id");
                         username = object.getString("stu_firstname");
 
-                        write(USERID_STUDENT, String.valueOf(struserid));
+                        write(USERID, String.valueOf(struserid));
                         write(USERNAME, username);
                         write(USERROLE, STUDENT);
 

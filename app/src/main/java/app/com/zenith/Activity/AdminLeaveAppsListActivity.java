@@ -50,14 +50,12 @@ public class AdminLeaveAppsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_leave_apps_list);
         backbtn = (ImageView) findViewById(R.id.adminleavapplist__backbutton);
-
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
 
         Intent intent = getIntent();
         id = intent.getExtras().getString("id");
@@ -183,7 +181,7 @@ public class AdminLeaveAppsListActivity extends AppCompatActivity {
     private class leavestatusUpdate extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... params) {
-            String str_url = utils.getResponseofGet(Constant.BASE_URL + "update_leave_status.php?leave_id=" + id + "&leave_status=" + status);
+            String str_url = utils.getResponseofGet(Constant.BASE_URL + "update_leave_status.php?leave_id=" + id + "&leave_status=1"  );
             Log.d("Response", "" + str_url);
             return str_url;
         }
@@ -241,7 +239,7 @@ public class AdminLeaveAppsListActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params)
         {
-            String str_url = utils.getResponseofGet(Constant.BASE_URL + "update_leave_status.php?leave_id=" + id + "&leave_status=" + status);
+            String str_url = utils.getResponseofGet(Constant.BASE_URL + "update_leave_status.php?leave_id=" + id + "&leave_status=" + 0);
             Log.d("Response", "" + str_url);
             return str_url;
         }

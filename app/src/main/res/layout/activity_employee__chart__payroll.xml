@@ -17,12 +17,11 @@
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:textColor="@color/white"
-            android:background="@color/button_blue"
             android:layout_height="@dimen/_30sdp"
             android:layout_marginBottom="-4dp"
             android:layout_weight="0"
-            />
+            android:background="@color/button_blue"
+            android:textColor="@color/white" />
 
         <FrameLayout
             android:id="@android:id/tabcontent"

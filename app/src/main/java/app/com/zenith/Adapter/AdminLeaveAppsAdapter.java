@@ -3,7 +3,6 @@ package app.com.zenith.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +45,6 @@ public class AdminLeaveAppsAdapter extends BaseAdapter {
     public AdminLeaveAppsAdapter(FragmentActivity context, ArrayList<AdminleavelppSetget> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
-        Log.d("Length", "" + arrayList.size());
         this.inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 

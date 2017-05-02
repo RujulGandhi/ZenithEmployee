@@ -36,20 +36,31 @@ import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
+import static app.com.zenith.Utils.Constant.USERID;
+
 public class EmployeeTotalEarningActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener {
     // TODO Activity for Employee Total Earninig    Page  **** Sanjay Umaraniya *******
     private LineChart mChart;
     private PieChart pieChart;
-    private String emp_Id;
+    public String emp_Id, name, id;
     private String str_url;
     public Utils utils;
     private TextView emp_Name;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        name = getIntent().getExtras().getString("Name");
+        id = getIntent().getExtras().getString("Id");
+        new totalearningChart().execute();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_total_earning);
         utils = new Utils(EmployeeTotalEarningActivity.this);
+        emp_Id = utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this, USERID);
         emp_Name = (TextView) findViewById(R.id.emptotalearningchart_empname);
         // TODO  Chart Cretae  Sanjay Umaraniya
         mChart = (LineChart) findViewById(R.id.linechart);
@@ -64,7 +75,7 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
         mChart.moveViewToX(10);
         Legend l = mChart.getLegend();
         l.setForm(Legend.LegendForm.LINE);
-        new totalearningChart().execute();
+
     }
 
 
@@ -134,10 +145,8 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
         @Override
         protected String doInBackground(String... params) {
 
-            Log.d("UserId", "" + emp_Id);
-            emp_Id = utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this, Constant.USERID);
-            str_url = utils.getResponseofGet(Constant.BASE_URL + "get_chart_employee.php?emp_id=" + emp_Id);
-            Log.d("Response", "" + str_url);
+            str_url = utils.getResponseofGet(Constant.BASE_URL + "get_chart_employee.php?emp_id=" + id);
+            Log.d("str_url", str_url);
             return str_url;
         }
 
@@ -149,8 +158,8 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
                 JSONObject mainObejct = new JSONObject(s);
                 if (mainObejct.getString("status").equalsIgnoreCase("true")) {
                     emp_Name.setText(mainObejct.getString("employee_name"));
-                    utils.WriteSharePrefrence(EmployeeTotalEarningActivity.this, Constant.USERID, mainObejct.getString("employee_id"));
-                    emp_Id = utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this, Constant.USERID);
+                    utils.WriteSharePrefrence(EmployeeTotalEarningActivity.this, USERID, mainObejct.getString("employee_id"));
+                    emp_Id = utils.ReadSharePrefrence(EmployeeTotalEarningActivity.this, USERID);
                     ArrayList<String> xVals = new ArrayList<String>();
                     xVals.add("Jan");
                     xVals.add("Feb");
@@ -199,13 +208,34 @@ public class EmployeeTotalEarningActivity extends AppCompatActivity implements O
                     PieChart pieChart = (PieChart) findViewById(R.id.piechart);
                     pieChart.setUsePercentValues(true);
                     ArrayList<String> xVals1 = new ArrayList<String>();
-                    xVals1.add("Time");
-                    xVals1.add("Amount");
+                    xVals1.add("Jan");
+                    xVals1.add("Feb");
+                    xVals1.add("Mar");
+                    xVals1.add("Apr");
+                    xVals1.add("May");
+                    xVals1.add("Jun");
+                    xVals1.add("Jul");
+                    xVals1.add("Aug");
+                    xVals1.add("Sap");
+                    xVals1.add("Oct");
+                    xVals1.add("Nav");
+                    xVals1.add("Dec");
                     ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
-                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("january").getString("total_working_hours"))), 0));
-                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("january").getString("total_earning"))), 1));
-                    PieDataSet dataSet = new PieDataSet(yVals1, "Election Results");
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("january").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("february").getString("event_monthly_hours"))), 1));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("march").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("april").getString("event_monthly_hours"))), 1));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("may").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("june").getString("event_monthly_hours"))), 1));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("july").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("august").getString("event_monthly_hours"))), 1));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("septmber").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("october").getString("event_monthly_hours"))), 1));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("november").getString("event_monthly_hours"))), 0));
+                    yVals1.add(new Entry(Float.parseFloat(String.valueOf(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("december").getString("event_monthly_hours"))), 1));
+
+                    PieDataSet dataSet = new PieDataSet(yVals1, "Monthly hours");
                     PieData data1 = new PieData(xVals, dataSet);
                     data.setValueFormatter(new PercentFormatter());
                     dataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);

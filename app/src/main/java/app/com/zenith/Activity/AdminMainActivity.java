@@ -79,8 +79,10 @@ public class AdminMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+
         toolbar = (Toolbar) findViewById(R.id.admin_toolbar);
         setSupportActionBar(toolbar);
+
         toolbar_icon = (ImageView) findViewById(R.id.admin_toolbar_icon);
         drawer = (DrawerLayout) findViewById(R.id.admin_drawer_layout);
         toolbar_title2 = (TextView) findViewById(R.id.admin_toolbar_title);
@@ -138,11 +140,11 @@ public class AdminMainActivity extends AppCompatActivity {
                         startActivity(in);
                         finish();
                         break;
-
                     default:
                         break;
                 }
                 if (fragment != null) {
+                    supportInvalidateOptionsMenu();
                     FragmentManager fm = getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.content_admin_main, fragment).commit();
