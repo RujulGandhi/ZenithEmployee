@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,13 +47,28 @@ public class AdminJoblistFragment extends Fragment {
     private TextView adminjoblist_Total;
     private String strTotalJobs;
     private Button admin_joblist_employeelist;
-
+    private Toolbar toolbar;
+    private TextView toolBarTitleTv;
+    private ImageView toolBarTitleImageIv, toolProfileIv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_joblist, container, false);
         list = (ListView) view.findViewById(R.id.admin_joblist_lv);
+
+
+        toolbar = (Toolbar) getActivity().findViewById(R.id.admin_toolbar);
+
+        toolBarTitleTv = (TextView) toolbar.findViewById(R.id.admin_toolbar_title);
+        toolBarTitleTv.setVisibility(View.VISIBLE);
+
+        toolBarTitleImageIv = (ImageView) toolbar.findViewById(R.id.adminhome_cust_titleimage);
+        toolBarTitleImageIv.setVisibility(View.GONE);
+
+        toolProfileIv = (ImageView) toolbar.findViewById(R.id.admin_toolbar_profile);
+        toolProfileIv.setVisibility(View.GONE);
+
 
         adminjoblist_Total = (TextView) view.findViewById(R.id.admin_joblist_eventcount);
         utils = new Utils(getActivity());

@@ -48,8 +48,8 @@ public class AdminHome extends Fragment {
     public CompactCalendarView calendarView;
     public Button adminhome_showemployeelist;
     private Toolbar toolbar;
-    private TextView textToolHeader;
-    private ImageView textToolHeaderIv, toolProfileIv;
+    private TextView toolBarTitleTv;
+    private ImageView toolBarTitleImageIv, toolProfileIv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,14 +57,14 @@ public class AdminHome extends Fragment {
         View view = inflater.inflate(R.layout.fragment_admin_home, container, false);
         utils = new Utils(getActivity());
         calendarView = (CompactCalendarView) view.findViewById(R.id.admin_compactcalendar_view);
-//        setHasOptionsMenu(true);
+       
         toolbar = (Toolbar) getActivity().findViewById(R.id.admin_toolbar);
 
-        textToolHeader = (TextView) toolbar.findViewById(R.id.admin_toolbar_title);
-        textToolHeader.setVisibility(View.GONE);
+        toolBarTitleTv = (TextView) toolbar.findViewById(R.id.admin_toolbar_title);
+        toolBarTitleTv.setVisibility(View.GONE);
 
-        textToolHeaderIv = (ImageView) toolbar.findViewById(R.id.adminhome_cust_titleimage);
-        textToolHeaderIv.setVisibility(View.VISIBLE);
+        toolBarTitleImageIv = (ImageView) toolbar.findViewById(R.id.adminhome_cust_titleimage);
+        toolBarTitleImageIv.setVisibility(View.VISIBLE);
 
         toolProfileIv = (ImageView) toolbar.findViewById(R.id.admin_toolbar_profile);
         toolProfileIv.setVisibility(View.VISIBLE);

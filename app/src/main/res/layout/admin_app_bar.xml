@@ -16,8 +16,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimaryDark">
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/admin_toolbar_title"
