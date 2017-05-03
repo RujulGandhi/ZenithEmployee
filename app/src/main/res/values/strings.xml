@@ -124,4 +124,7 @@
     <string name="logout">Logout</string>
     <string name="plus">+</string>
     <string name="shift_circle_txtcolor_redark1">Choose your color</string>
+    <string name="jobs">Jobs</string>
+    <string name="hours">Hours</string>
+    <string name="pays">Pays</string>
 </resources>
