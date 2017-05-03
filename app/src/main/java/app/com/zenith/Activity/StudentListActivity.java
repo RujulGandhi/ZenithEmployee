@@ -15,7 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import app.com.zenith.Adapter.StudentListAdapter;
 import app.com.zenith.Model.StudentListSetget;
@@ -89,12 +92,11 @@ public class StudentListActivity extends AppCompatActivity {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObj = array.getJSONObject(i);
                         eventusernmae = (jsonObj.getString("stu_firstname"));
-                        Log.d("EventName", "" + eventusernmae);
                         studentListSetget = new StudentListSetget();
                         studentListSetget.setS_stu_firstname(jsonObj.getString("stu_firstname"));
                         studentListSetget.setS_stu_image(jsonObj.getString("stu_image"));
                         studentListSetget.setS_stu_school(jsonObj.getString("stu_school"));
-                        studentListSetget.setStu_join_date(jsonObj.getString("stu_join_date"));
+                        studentListSetget.setStu_join_date(parseDateToddMMyyyy(jsonObj.getString("stu_join_date")));
                         arrayList.add(studentListSetget);
                     }
                 }
@@ -109,5 +111,21 @@ public class StudentListActivity extends AppCompatActivity {
                 Toast.makeText(context, "Data Not Found ? Please Try Again.", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public String parseDateToddMMyyyy(String time) {
+        String inputPattern = "yyyy-MM-dd HH:mm:ss";
+        String outputPattern = "dd-MMM-yyyy";
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        Date date = null;
+        String str = null;
+        try {
+            date = inputFormat.parse(time);
+            str = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 }

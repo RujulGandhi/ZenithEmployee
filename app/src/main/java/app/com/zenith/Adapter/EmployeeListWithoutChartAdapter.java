@@ -68,7 +68,7 @@ public class EmployeeListWithoutChartAdapter extends BaseAdapter {
             Picasso.with(context).load(employeeListSetget.getEmp_listImage()).into(employeelist_image);
         }
         employeelist_name.setText(employeeListSetget.getEmp_listName());
-        employeelist_datetime.setText(employeeListSetget.getEmp_listDatetime());
+        employeelist_datetime.setText("Since " + employeeListSetget.getEmp_listDatetime());
         return view;
     }
 }

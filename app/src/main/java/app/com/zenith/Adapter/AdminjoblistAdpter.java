@@ -64,6 +64,8 @@ public class AdminjoblistAdpter extends BaseAdapter
         adminjoblist_txtname.setText(adminSetget.getE_name());
         adminjoblist_txtshift.setText(adminSetget.getE_shift());
         adminjoblist_txtdate.setText(adminSetget.getE_date());
+
+
         return vi;
     }
 }

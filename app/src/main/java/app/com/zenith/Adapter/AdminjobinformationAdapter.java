@@ -2,6 +2,7 @@ package app.com.zenith.Adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,12 +71,13 @@ public class AdminjobinformationAdapter extends BaseAdapter {
         admin_jobinformation_colorcode = (TextView) vi.findViewById(R.id.admin_jobinformation_colorcode);
         admin_delete_event = (TextView) vi.findViewById(R.id.admin_jobinformation_btndelete);
 
-
+        String array[] = adminjobinfoSetget.getEvent_colorcode().split(",");
+        String hexColor = String.format("#%02x%02x%02x", Integer.parseInt(array[0]), Integer.parseInt(array[1]), Integer.parseInt(array[2]));
         admin_jobinformation_eventname.setText(adminjobinfoSetget.getEvent_name());
         admin_jobinformation_startdate.setText(adminjobinfoSetget.getEvent_start_time());
         admin_jobinformation_enddate.setText(adminjobinfoSetget.getEvent_end_time());
         admin_jobinformation_hourerate.setText(adminjobinfoSetget.getEvent_hourly_rate());
-        admin_jobinformation_colorcode.setText(adminjobinfoSetget.getEvent_colorcode());
+        admin_jobinformation_colorcode.setBackgroundColor(Color.parseColor(hexColor));
         admin_delete_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

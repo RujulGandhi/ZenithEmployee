@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-f
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/admin_leaveapplication_img"
                 android:layout_width="@dimen/_55sdp"
@@ -69,9 +69,9 @@ f
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -79,8 +79,8 @@ f
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="5"
                     android:gravity="center_horizontal"
+                    android:text="5"
                     android:textColor="@color/admin_jobinformation_dark" />
 
                 <TextView
@@ -106,7 +106,7 @@ f
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/adminleaveapplication" />
+                    android:src="@drawable/ic_placeholder" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

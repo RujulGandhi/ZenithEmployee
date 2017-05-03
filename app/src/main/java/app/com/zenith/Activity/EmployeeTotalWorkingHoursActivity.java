@@ -144,7 +144,6 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
                 JSONObject mainObejct = new JSONObject(s);
                 if (mainObejct.getString("status").equalsIgnoreCase("true")) {
                     emp_Name.setText(mainObejct.getString("employee_name"));
-                    utils.WriteSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID, mainObejct.getString("employee_id"));
                     emp_Id = utils.ReadSharePrefrence(EmployeeTotalWorkingHoursActivity.this, Constant.USERID);
                     ArrayList<String> xVals = new ArrayList<String>();
                     xVals.add("Jan");
@@ -160,9 +159,7 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
                     xVals.add("Nav");
                     xVals.add("Dec");
 
-
                     ArrayList<Entry> yVals = new ArrayList<Entry>();
-
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("january").getString("event_monthly_hours")), 0));
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("february").getString("event_monthly_hours")), 1));
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("march").getString("event_monthly_hours")), 2));
@@ -175,7 +172,6 @@ public class EmployeeTotalWorkingHoursActivity extends AppCompatActivity impleme
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("october").getString("event_monthly_hours")), 9));
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("november").getString("event_monthly_hours")), 10));
                     yVals.add(new Entry(Float.parseFloat(mainObejct.getJSONArray("employee_event_details").getJSONObject(0).getJSONObject("december").getString("event_monthly_hours")), 11));
-
 
                     LineDataSet set1;
 

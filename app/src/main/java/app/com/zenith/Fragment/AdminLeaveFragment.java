@@ -70,7 +70,6 @@ public class AdminLeaveFragment extends Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             pd.dismiss();
-
             try {
                 JSONObject jsonObject = new JSONObject(s);
                 if (jsonObject.getString("status").equalsIgnoreCase("true")) {

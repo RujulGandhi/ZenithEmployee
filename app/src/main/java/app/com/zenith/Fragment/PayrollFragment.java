@@ -33,6 +33,8 @@ import app.com.zenith.R;
 import app.com.zenith.Utils.Constant;
 import app.com.zenith.Utils.Utils;
 
+import static app.com.zenith.Utils.Utils.isConnectingToInternet;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -56,7 +58,7 @@ public class PayrollFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (utils.isConnectingToInternet(getActivity())) {
+        if (isConnectingToInternet(getActivity())) {
             new getAllEvent().execute();
         } else {
             Toast.makeText(getActivity(), getString(R.string.error_nointernet), Toast.LENGTH_SHORT).show();

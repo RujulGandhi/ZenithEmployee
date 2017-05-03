@@ -33,11 +33,11 @@ import retrofit2.Response;
 import static app.com.zenith.Utils.Constant.USERID;
 import static app.com.zenith.Utils.Utils.ReadSharePrefrence;
 import static app.com.zenith.Utils.Utils.isConnectingToInternet;
+
 /**
  * Created by archirayan on 20-Feb-17.
  */
-public class LeaveApplication extends Fragment
-{
+public class LeaveApplication extends Fragment {
     // TODO Fragment Class For Employee Leave Page  *******   Sanjay Umaraniya  **********
     @BindView(R.id.fragment_leave_app_recycler)
     public RecyclerView recyclerView;
@@ -52,29 +52,23 @@ public class LeaveApplication extends Fragment
         View view = inflater.inflate(R.layout.fragment_leave_app, container, false);
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
-        if (isConnectingToInternet(getActivity()))
-        {
+        if (isConnectingToInternet(getActivity())) {
             getLeaveApplicationList();
-        }
-        else
-        {
+        } else {
             Toast.makeText(getActivity(), getString(R.string.error_nointernet), Toast.LENGTH_SHORT).show();
         }
         return view;
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
-    {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.main, menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.action_settings:
                 Intent intent = new Intent(getActivity(), LeaveApplicationDetails.class);
                 startActivity(intent);
@@ -99,7 +93,6 @@ public class LeaveApplication extends Fragment
             public void onResponse(Call<LeaveMainDetails> call, Response<LeaveMainDetails> response) {
 
                 if (response.body().getStatus().equalsIgnoreCase("true")) {
-
                     pd.dismiss();
                     leaveInfoList = response.body().getLeaveData();
                     layoutManager = new LinearLayoutManager(getActivity());
@@ -110,8 +103,7 @@ public class LeaveApplication extends Fragment
             }
 
             @Override
-            public void onFailure(Call<LeaveMainDetails> call, Throwable t)
-            {
+            public void onFailure(Call<LeaveMainDetails> call, Throwable t) {
                 pd.dismiss();
                 Toast.makeText(getActivity(), getString(R.string.somethingwentwrong), Toast.LENGTH_SHORT).show();
             }

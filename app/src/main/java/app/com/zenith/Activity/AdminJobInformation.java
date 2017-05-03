@@ -66,6 +66,8 @@ public class AdminJobInformation extends AppCompatActivity {
             String strObjList = getIntent().getExtras().getString("jobdetails");
             arrayList = gson.fromJson(strObjList, AdminSetget.class);
 
+
+
             adpter = new AdminjobinformationAdapter(AdminJobInformation.this, arrayList);
             admin_jobinformation_lv.setAdapter(adpter);
             admin_jobinformation_eventcount.setText("" + (arrayList.getEventArray().size()));

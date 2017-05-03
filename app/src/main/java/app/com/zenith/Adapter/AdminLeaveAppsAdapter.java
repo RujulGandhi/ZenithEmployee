@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,9 +20,6 @@ import app.com.zenith.Model.AdminleavelppSetget;
 import app.com.zenith.R;
 import app.com.zenith.Utils.Utils;
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static app.com.zenith.R.id.admin_leaveapplication_leavetype;
-import static app.com.zenith.R.id.admin_leaveapplication_totalday;
 
 /**
  * Created by archi_info on 3/30/2017.
@@ -36,11 +34,9 @@ public class AdminLeaveAppsAdapter extends BaseAdapter {
     private String name;
     private String date;
     private LinearLayout admin_leaveapplication_layout_id;
-   private CircleImageView adminleaveapps_image;
-   private TextView adminleaveapps_Name;
-   private TextView adminleaveapps_Date;
-   private TextView adminleaveapps_TotalLeaveDay;
-   private TextView adminleaveapps_Leavtype;
+    private CircleImageView adminleaveapps_image;
+    private TextView adminleaveapps_Name, adminleaveapps_Date, adminleaveapps_TotalLeaveDay, adminleaveapps_Leavtype;
+    private ImageView leaveStatusIv;
 
     public AdminLeaveAppsAdapter(FragmentActivity context, ArrayList<AdminleavelppSetget> arrayList) {
         this.context = context;
@@ -74,8 +70,23 @@ public class AdminLeaveAppsAdapter extends BaseAdapter {
         adminleaveapps_image = (CircleImageView) view.findViewById(R.id.admin_leaveapplication_img);
         adminleaveapps_Name = (TextView) view.findViewById(R.id.admin_leaveapplication_name);
         adminleaveapps_Date = (TextView) view.findViewById(R.id.admin_leaveapplication_date);
-        adminleaveapps_TotalLeaveDay = (TextView) view.findViewById(admin_leaveapplication_totalday);
-        adminleaveapps_Leavtype = (TextView) view.findViewById(admin_leaveapplication_leavetype);
+        adminleaveapps_TotalLeaveDay = (TextView) view.findViewById(R.id.admin_leaveapplication_totalday);
+        adminleaveapps_Leavtype = (TextView) view.findViewById(R.id.admin_leaveapplication_leavetype);
+        leaveStatusIv = (ImageView) view.findViewById(R.id.admin_leaveapplication_typeleaveimg);
+
+        if (adminleavelppSetget.getAdminLeave_Status().equals("Annual Leave")) {
+
+            leaveStatusIv.setImageResource(R.mipmap.ic_levae);
+
+        } else if (adminleavelppSetget.getAdminLeave_Status().equals("Unpaid Leave")) {
+
+            leaveStatusIv.setImageResource(R.mipmap.ic_dollar);
+
+        } else {
+
+            leaveStatusIv.setImageResource(R.mipmap.ic_sick_leave);
+
+        }
 
 
         adminleaveapps_Name.setText(adminleavelppSetget.getAdminLeave_Name());

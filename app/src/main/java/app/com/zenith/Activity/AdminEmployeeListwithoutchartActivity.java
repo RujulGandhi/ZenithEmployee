@@ -17,7 +17,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import app.com.zenith.Adapter.EmployeeListWithoutChartAdapter;
 import app.com.zenith.Model.EmployeeListSetget;
@@ -91,7 +94,7 @@ public class AdminEmployeeListwithoutchartActivity extends AppCompatActivity {
                         employeeListSetget.setEmp_listId(jsonObj.getString("emp_id"));
                         employeeListSetget.setEmp_listName(jsonObj.getString("emp_name"));
                         employeeListSetget.setEmp_listImage(jsonObj.getString("emp_image"));
-                        employeeListSetget.setEmp_listDatetime(jsonObj.getString("emp_join_date"));
+                        employeeListSetget.setEmp_listDatetime(parseDateToddMMyyyy(jsonObj.getString("emp_join_date")));
                         arrayList.add(employeeListSetget);
                     }
                 }
@@ -118,5 +121,21 @@ public class AdminEmployeeListwithoutchartActivity extends AppCompatActivity {
                 Toast.makeText(context, "Data Not Found ? Please Try Again.", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public String parseDateToddMMyyyy(String time) {
+        String inputPattern = "yyyy-MM-dd HH:mm:ss";
+        String outputPattern = "dd-MMM-yyyy";
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        Date date = null;
+        String str = null;
+        try {
+            date = inputFormat.parse(time);
+            str = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 }
