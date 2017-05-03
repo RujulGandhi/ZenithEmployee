@@ -56,12 +56,12 @@ public class PayrollAdapter extends BaseAdapter {
         View view = inflater.inflate(R.layout.payroll_cust_list, null);
         payrollSetget = arrayList.get(position);
         payroll_eventusername = (TextView) view.findViewById(R.id.payroll_eventusername);
-        payroll_uhourtotal= (TextView) view.findViewById(R.id.payroll_uhouretotal);
-        payroll_uhourerate= (TextView) view.findViewById(R.id.payroll_uhourerate);
+        payroll_uhourtotal = (TextView) view.findViewById(R.id.payroll_uhouretotal);
+        payroll_uhourerate = (TextView) view.findViewById(R.id.payroll_uhourerate);
 
-        payroll_uhourtotal.setText(payrollSetget.getUhour());
+        payroll_uhourtotal.setText(payrollSetget.getUhour() + "hrs");
         payroll_eventusername.setText(payrollSetget.getUeventname());
-        payroll_uhourerate.setText(payrollSetget.getUincome());
+        payroll_uhourerate.setText("$" + payrollSetget.getUincome());
         return view;
     }
 }
