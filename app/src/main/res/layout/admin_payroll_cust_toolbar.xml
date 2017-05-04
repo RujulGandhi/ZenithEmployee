@@ -25,7 +25,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="-20dp"
                 android:padding="10dp"
-                android:src="@drawable/ic_drawer_icon" />
+                android:src="@mipmap/ic_drawer" />
 
 
             <TextView

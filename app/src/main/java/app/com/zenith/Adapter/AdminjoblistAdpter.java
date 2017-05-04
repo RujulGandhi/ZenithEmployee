@@ -9,17 +9,20 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import app.com.zenith.Model.AdminSetget;
 import app.com.zenith.R;
 import app.com.zenith.Utils.Utils;
 import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by archi_info on 3/8/2017.
  */
-public class AdminjoblistAdpter extends BaseAdapter
-{
+public class AdminjoblistAdpter extends BaseAdapter {
     // TODO  Adapter Class for Admin Joblist Page
     public Context context;
     public AdminSetget adminSetget;
@@ -63,9 +66,24 @@ public class AdminjoblistAdpter extends BaseAdapter
         Picasso.with(context).load(adminSetget.getE_img()).placeholder(R.drawable.ic_placeholder).into(adminjoblist_img);
         adminjoblist_txtname.setText(adminSetget.getE_name());
         adminjoblist_txtshift.setText(adminSetget.getE_shift());
-        adminjoblist_txtdate.setText(adminSetget.getE_date());
-
+        adminjoblist_txtdate.setText(parseDateToddMMyyyy(adminSetget.getE_date()));
 
         return vi;
+    }
+
+    public String parseDateToddMMyyyy(String time) {
+        String inputPattern = "yyyy-MM-dd HH:mm:ss";
+        String outputPattern = "dd-MMM-yyyy";
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        Date date = null;
+        String str = null;
+        try {
+            date = inputFormat.parse(time);
+            str = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 }

@@ -382,9 +382,9 @@ public class JobsAndShiftActvity extends AppCompatActivity {
                                         @Override
                                         public void setOnFastChooseColorListener(int position, int color) {
                                             int colorData = (int) Long.parseLong(colors.get(position).substring(1, colors.get(position).length()), 16);
-                                            float red = (colorData >> 16) & 0xFF;
-                                            float green = (colorData >> 8) & 0xFF;
-                                            float blue = (colorData >> 0) & 0xFF;
+                                            int red = (colorData >> 16) & 0xFF;
+                                            int green = (colorData >> 8) & 0xFF;
+                                            int blue = (colorData >> 0) & 0xFF;
 
                                             jobsandshift_colorshowactivity.setBackgroundColor(color);
                                             StringBuilder messages = new StringBuilder();
